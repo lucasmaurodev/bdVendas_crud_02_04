@@ -65,12 +65,15 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.TabelaCliente = new System.Windows.Forms.DataGridView();
+            this.txtPesquisa = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.btnPesquisa = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabClientes.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TabelaCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -193,14 +196,17 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Controls.Add(this.btnPesquisa);
+            this.tabPage2.Controls.Add(this.txtPesquisa);
+            this.tabPage2.Controls.Add(this.label13);
+            this.tabPage2.Controls.Add(this.TabelaCliente);
             this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(562, 347);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Exibir";
+            this.tabPage2.Text = "Consulta";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // cbEstado
@@ -489,13 +495,46 @@
             this.label2.TabIndex = 29;
             this.label2.Text = "Código";
             // 
-            // dataGridView1
+            // TabelaCliente
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 5);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(557, 341);
-            this.dataGridView1.TabIndex = 0;
+            this.TabelaCliente.AllowUserToAddRows = false;
+            this.TabelaCliente.AllowUserToDeleteRows = false;
+            this.TabelaCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TabelaCliente.Location = new System.Drawing.Point(2, 66);
+            this.TabelaCliente.Name = "TabelaCliente";
+            this.TabelaCliente.ReadOnly = true;
+            this.TabelaCliente.Size = new System.Drawing.Size(557, 198);
+            this.TabelaCliente.TabIndex = 0;
+            // 
+            // txtPesquisa
+            // 
+            this.txtPesquisa.Location = new System.Drawing.Point(108, 27);
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(200, 20);
+            this.txtPesquisa.TabIndex = 33;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("OCR-B 10 BT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label13.Location = new System.Drawing.Point(36, 25);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(66, 22);
+            this.label13.TabIndex = 32;
+            this.label13.Text = "Nome";
+            // 
+            // btnPesquisa
+            // 
+            this.btnPesquisa.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisa.ForeColor = System.Drawing.Color.White;
+            this.btnPesquisa.Location = new System.Drawing.Point(321, 23);
+            this.btnPesquisa.Name = "btnPesquisa";
+            this.btnPesquisa.Size = new System.Drawing.Size(123, 26);
+            this.btnPesquisa.TabIndex = 34;
+            this.btnPesquisa.Text = "Pesquisa";
+            this.btnPesquisa.UseVisualStyleBackColor = false;
             // 
             // FrmClientes
             // 
@@ -516,7 +555,8 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TabelaCliente)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -560,6 +600,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView TabelaCliente;
+        private System.Windows.Forms.Button btnPesquisa;
+        private System.Windows.Forms.TextBox txtPesquisa;
+        private System.Windows.Forms.Label label13;
     }
 }
