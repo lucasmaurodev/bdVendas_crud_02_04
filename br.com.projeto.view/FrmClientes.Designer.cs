@@ -36,7 +36,6 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.tabClientes = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.cbEstado = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtCidade = new System.Windows.Forms.TextBox();
@@ -65,10 +64,11 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.TabelaCliente = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnPesquisa = new System.Windows.Forms.Button();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.btnPesquisa = new System.Windows.Forms.Button();
+            this.TabelaCliente = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.tabClientes.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -120,6 +120,7 @@
             this.btnSalvar.TabIndex = 30;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnEditar
             // 
@@ -193,21 +194,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dados Pessoais";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.btnPesquisa);
-            this.tabPage2.Controls.Add(this.txtPesquisa);
-            this.tabPage2.Controls.Add(this.label13);
-            this.tabPage2.Controls.Add(this.TabelaCliente);
-            this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(562, 347);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Consulta";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // cbEstado
             // 
@@ -495,16 +481,32 @@
             this.label2.TabIndex = 29;
             this.label2.Text = "Código";
             // 
-            // TabelaCliente
+            // tabPage2
             // 
-            this.TabelaCliente.AllowUserToAddRows = false;
-            this.TabelaCliente.AllowUserToDeleteRows = false;
-            this.TabelaCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.TabelaCliente.Location = new System.Drawing.Point(2, 66);
-            this.TabelaCliente.Name = "TabelaCliente";
-            this.TabelaCliente.ReadOnly = true;
-            this.TabelaCliente.Size = new System.Drawing.Size(557, 198);
-            this.TabelaCliente.TabIndex = 0;
+            this.tabPage2.Controls.Add(this.btnPesquisa);
+            this.tabPage2.Controls.Add(this.txtPesquisa);
+            this.tabPage2.Controls.Add(this.label13);
+            this.tabPage2.Controls.Add(this.TabelaCliente);
+            this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(562, 347);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Consulta";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnPesquisa
+            // 
+            this.btnPesquisa.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisa.ForeColor = System.Drawing.Color.White;
+            this.btnPesquisa.Location = new System.Drawing.Point(321, 23);
+            this.btnPesquisa.Name = "btnPesquisa";
+            this.btnPesquisa.Size = new System.Drawing.Size(123, 26);
+            this.btnPesquisa.TabIndex = 34;
+            this.btnPesquisa.Text = "Pesquisa";
+            this.btnPesquisa.UseVisualStyleBackColor = false;
             // 
             // txtPesquisa
             // 
@@ -524,17 +526,17 @@
             this.label13.TabIndex = 32;
             this.label13.Text = "Nome";
             // 
-            // btnPesquisa
+            // TabelaCliente
             // 
-            this.btnPesquisa.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisa.ForeColor = System.Drawing.Color.White;
-            this.btnPesquisa.Location = new System.Drawing.Point(321, 23);
-            this.btnPesquisa.Name = "btnPesquisa";
-            this.btnPesquisa.Size = new System.Drawing.Size(123, 26);
-            this.btnPesquisa.TabIndex = 34;
-            this.btnPesquisa.Text = "Pesquisa";
-            this.btnPesquisa.UseVisualStyleBackColor = false;
+            this.TabelaCliente.AllowUserToAddRows = false;
+            this.TabelaCliente.AllowUserToDeleteRows = false;
+            this.TabelaCliente.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.TabelaCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TabelaCliente.Location = new System.Drawing.Point(2, 66);
+            this.TabelaCliente.Name = "TabelaCliente";
+            this.TabelaCliente.ReadOnly = true;
+            this.TabelaCliente.Size = new System.Drawing.Size(557, 198);
+            this.TabelaCliente.TabIndex = 0;
             // 
             // FrmClientes
             // 

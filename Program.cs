@@ -1,4 +1,5 @@
-﻿using System;
+﻿using bdVendas.br.com.projeto.view;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,11 +13,11 @@ namespace bdVendas
         /// Ponto de entrada principal para o aplicativo.
         /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fmrPrincipal());
+            Application.Run(new FrmClientes());
         }
     }
 }
