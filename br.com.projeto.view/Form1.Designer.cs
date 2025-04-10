@@ -36,7 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(378, 739);
             this.Name = "fmrPrincipal";
-            this.Text = "dfcf  ";
+            this.Text = "FrmPrincipal";
             this.ResumeLayout(false);
 
         }

@@ -3,6 +3,7 @@ using bdVendas.br.com.projeto.model;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using System.Windows.Forms;
 namespace bdVendas.br.com.projeto.dao
 {
     public class ClienteDao
+
     {
         private MySqlConnection conexao;
 
@@ -65,5 +67,75 @@ namespace bdVendas.br.com.projeto.dao
         }
 
         #endregion CadastrarClientes
+
+        #region ListarCLientes
+
+        public DataTable listarClientes()
+        {
+            try
+            {
+                DataTable tabelaCliente = new DataTable();
+                string sql = "select * from tb_clientes";
+
+                MySqlCommand executacmd = new MySqlCommand(sql, conexao);
+                conexao.Open();
+                executacmd.ExecuteNonQuery();
+
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelaCliente);
+
+                conexao.Close();
+
+                return tabelaCliente;
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro ao executar o comando sql: " + erro);
+
+                return null;
+            }
+        }
+
+        #endregion ListarCLientes
+
+        #region AlterarCliente
+
+        public void alterarCliente(Cliente obj)
+        {
+            try
+            {
+                string sql = @"update tb_clientes set nome=@nome,rg=@rg,cpf=@cpf,email=@email,telefone=@telefone,celular=@celular,cep=@cep,
+                                  endereco=@endereco,numero=@numero,complemento=@complemento,bairro=@bairro,cidade=@cidade,estado=@estado
+                                  where id=@id";
+
+                MySqlCommand executacmd = new MySqlCommand(sql, conexao);
+                executacmd.Parameters.AddWithValue("@nome", obj.nome);
+                executacmd.Parameters.AddWithValue("@rg", obj.rg);
+                executacmd.Parameters.AddWithValue("@cpf", obj.cpf);
+                executacmd.Parameters.AddWithValue("@email", obj.email);
+                executacmd.Parameters.AddWithValue("@telefone", obj.telefone);
+                executacmd.Parameters.AddWithValue("@celular", obj.celular);
+                executacmd.Parameters.AddWithValue("@cep", obj.cep);
+                executacmd.Parameters.AddWithValue("@enedereco", obj.endereco);
+                executacmd.Parameters.AddWithValue("@numero", obj.numero);
+                executacmd.Parameters.AddWithValue("@complemento", obj.complemento);
+                executacmd.Parameters.AddWithValue("@bairro", obj.bairro);
+                executacmd.Parameters.AddWithValue("@cidade", obj.cidade);
+                executacmd.Parameters.AddWithValue("@estado", obj.estado);
+                executacmd.Parameters.AddWithValue("@id", obj.id);
+
+                conexao.Open();
+
+                executacmd.ExecuteNonQuery();
+
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um erro: " + erro);
+            }
+        }
+
+        #endregion AlterarCliente
     }
 }

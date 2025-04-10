@@ -42,5 +42,30 @@ namespace bdVendas.br.com.projeto.view
             ClienteDao dao = new ClienteDao();
             dao.cadastrarCliente(obj);
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            Cliente obj = new Cliente();
+
+            obj.nome = txtNome.Text;
+            obj.rg = txtRg.Text;
+            obj.cpf = txtCpf.Text;
+            obj.email = txtEmail.Text;
+            obj.telefone = txtTelefone.Text;
+            obj.celular = txtCelular.Text;
+            obj.cep = txtCep.Text;
+            obj.bairro = txtBairro.Text;
+            obj.cidade = txtCidade.Text;
+            obj.estado = cbEstado.Text;
+            obj.id = int.Parse(txtCodigo.Text);
+
+            ClienteDao dao = new ClienteDao();
+
+            TabelaCliente.DataSource = dao.listarClientes();
+        }
+
+        private void TabelaCliente_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
     }
 }

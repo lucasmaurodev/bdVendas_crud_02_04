@@ -133,6 +133,7 @@
             this.btnEditar.TabIndex = 32;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnExcluir
             // 
@@ -537,6 +538,7 @@
             this.TabelaCliente.ReadOnly = true;
             this.TabelaCliente.Size = new System.Drawing.Size(557, 198);
             this.TabelaCliente.TabIndex = 0;
+            this.TabelaCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TabelaCliente_CellClick);
             // 
             // FrmClientes
             // 
