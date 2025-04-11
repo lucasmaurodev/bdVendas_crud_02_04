@@ -16,8 +16,6 @@ namespace bdVendas.br.com.projeto.model
         public string celular { get; set; }
         public string cep { get; set; }
         public string endereco { get; set; },
-        ,
-        ,
 
         public string numero { get; set; }
         public string complemento { get; set; }
