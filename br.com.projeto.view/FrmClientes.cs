@@ -129,5 +129,33 @@ namespace bdVendas.br.com.projeto.view
                 TabelaCliente.DataSource = dao.BuscarCliente(nome);
             }
         }
+
+        #region LimparFormulario
+
+        public void LimparFormulario()
+        {
+            foreach (Control control in tabPage1.Controls)
+            {
+                if (control is TextBox)
+                {
+                    ((TextBox)control).Clear();
+                }
+                if (control is MaskedTextBox)
+                {
+                    ((MaskedTextBox)control).Clear();
+                }
+                if (control is ComboBox)
+                {
+                    ((ComboBox)control).Clear();
+                }
+            }
+        }
+
+        #endregion LimparFormulario
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            LimparFormulario();
+        }
     }
 }

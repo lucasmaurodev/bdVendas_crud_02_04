@@ -79,7 +79,6 @@ namespace bdVendas.br.com.projeto.dao
 
                 MySqlCommand executacmd = new MySqlCommand(sql, conexao);
                 conexao.Open();
-                executacmd.ExecuteNonQuery();
 
                 MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
                 da.Fill(tabelaCliente);
@@ -174,13 +173,12 @@ namespace bdVendas.br.com.projeto.dao
                 DataTable tabelacliente = new DataTable();
                 string sql = "select * from tb_clientes where nome=@nome";
 
-                MySqlCommand executarcmd = new MySqlCommand();
+                MySqlCommand executarcmd = new MySqlCommand(sql, conexao);
                 executarcmd.Parameters.AddWithValue("@nome", nome);
 
                 conexao.Open();
-                executarcmd.ExecuteNonQuery();
 
-                MySqlDataAdapter da = new MySqlDataAdapter();
+                MySqlDataAdapter da = new MySqlDataAdapter(executarcmd);
                 da.Fill(tabelacliente);
 
                 conexao.Close();
@@ -190,6 +188,7 @@ namespace bdVendas.br.com.projeto.dao
             catch (Exception erro)
             {
                 MessageBox.Show("Erro ao executar o comando Sql" + erro);
+                return null;
             }
         }
 

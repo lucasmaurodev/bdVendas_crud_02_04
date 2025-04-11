@@ -108,6 +108,7 @@
             this.btnNovo.TabIndex = 29;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnSalvar
             // 
@@ -157,6 +158,7 @@
             this.tabClientes.SelectedIndex = 0;
             this.tabClientes.Size = new System.Drawing.Size(570, 373);
             this.tabClientes.TabIndex = 33;
+    
             // 
             // tabPage1
             // 
