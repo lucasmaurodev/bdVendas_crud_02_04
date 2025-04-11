@@ -41,6 +41,8 @@ namespace bdVendas.br.com.projeto.view
             // Criar um objeto da classeDAO e chamar o metedo cadastrar cliente
             ClienteDao dao = new ClienteDao();
             dao.cadastrarCliente(obj);
+
+            LimparFormulario();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -63,7 +65,10 @@ namespace bdVendas.br.com.projeto.view
 
             dao.alterarCliente(obj);
 
+            MessageBox.Show("Cliente Alterado com sucesso");
+
             TabelaCliente.DataSource = dao.listarClientes();
+            LimparFormulario();
         }
 
         private void TabelaCliente_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -143,10 +148,6 @@ namespace bdVendas.br.com.projeto.view
                 if (control is MaskedTextBox)
                 {
                     ((MaskedTextBox)control).Clear();
-                }
-                if (control is ComboBox)
-                {
-                    ((ComboBox)control).Clear();
                 }
             }
         }
