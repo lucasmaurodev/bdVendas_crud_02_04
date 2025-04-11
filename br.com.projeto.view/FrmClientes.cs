@@ -61,11 +61,73 @@ namespace bdVendas.br.com.projeto.view
 
             ClienteDao dao = new ClienteDao();
 
+            dao.alterarCliente(obj);
+
             TabelaCliente.DataSource = dao.listarClientes();
         }
 
         private void TabelaCliente_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            txtCodigo.Text = TabelaCliente.CurrentRow.Cells[0].Value.ToString();
+        }
+
+        private void FrmClientes_Load(object sender, EventArgs e)
+        {
+            ClienteDao obj = new ClienteDao();
+
+            TabelaCliente.DataSource = obj.listarClientes();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (txtCodigo.Text == null)
+            {
+                return;
+            }
+
+            Cliente obj = new Cliente();
+
+            obj.id = int.Parse(txtCodigo.Text);
+
+            ClienteDao dao = new ClienteDao();
+
+            dao.exluirCliente(obj);
+
+            TabelaCliente.DataSource = dao.listarClientes();
+        }
+
+        private void TabelaCliente_DoubleClick(object sender, EventArgs e)
+        {
+            txtCodigo.Text = TabelaCliente.CurrentRow.Cells[0].Value.ToString();
+            txtNome.Text = TabelaCliente.CurrentRow.Cells[1].Value.ToString();
+            txtRg.Text = TabelaCliente.CurrentRow.Cells[2].Value.ToString();
+            txtCpf.Text = TabelaCliente.CurrentRow.Cells[3].Value.ToString();
+            txtEmail.Text = TabelaCliente.CurrentRow.Cells[4].Value.ToString();
+            txtTelefone.Text = TabelaCliente.CurrentRow.Cells[5].Value.ToString();
+            txtCelular.Text = TabelaCliente.CurrentRow.Cells[6].Value.ToString();
+            txtCep.Text = TabelaCliente.CurrentRow.Cells[7].Value.ToString();
+            txtEndereco.Text = TabelaCliente.CurrentRow.Cells[8].Value.ToString();
+            txtNumero.Text = TabelaCliente.CurrentRow.Cells[9].Value.ToString();
+            txtComplento.Text = TabelaCliente.CurrentRow.Cells[10].Value.ToString();
+            txtBairro.Text = TabelaCliente.CurrentRow.Cells[11].Value.ToString();
+            txtCidade.Text = TabelaCliente.CurrentRow.Cells[12].Value.ToString();
+            cbEstado.Text = TabelaCliente.CurrentRow.Cells[13].Value.ToString();
+
+            tabClientes.SelectedTab = tabPage1;
+        }
+
+        private void btnPesquisa_Click(object sender, EventArgs e)
+        {
+            string nome = txtPesquisa.Text;
+
+            ClienteDao dao = new ClienteDao();
+
+            TabelaCliente.DataSource = dao.BuscarCliente(nome);
+
+            if (TabelaCliente.Rows.Count == 0)
+            {
+                TabelaCliente.DataSource = dao.BuscarCliente(nome);
+            }
         }
     }
 }

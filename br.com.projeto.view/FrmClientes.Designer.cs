@@ -146,6 +146,7 @@
             this.btnExcluir.TabIndex = 31;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // tabClientes
             // 
@@ -508,6 +509,7 @@
             this.btnPesquisa.TabIndex = 34;
             this.btnPesquisa.Text = "Pesquisa";
             this.btnPesquisa.UseVisualStyleBackColor = false;
+            this.btnPesquisa.Click += new System.EventHandler(this.btnPesquisa_Click);
             // 
             // txtPesquisa
             // 
@@ -539,6 +541,7 @@
             this.TabelaCliente.Size = new System.Drawing.Size(557, 198);
             this.TabelaCliente.TabIndex = 0;
             this.TabelaCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TabelaCliente_CellClick);
+            this.TabelaCliente.DoubleClick += new System.EventHandler(this.TabelaCliente_DoubleClick);
             // 
             // FrmClientes
             // 
@@ -553,6 +556,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FrmClientes";
             this.Text = "FrmClientes";
+            this.Load += new System.EventHandler(this.FrmClientes_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabClientes.ResumeLayout(false);

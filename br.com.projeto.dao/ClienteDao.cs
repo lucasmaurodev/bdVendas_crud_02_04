@@ -116,7 +116,7 @@ namespace bdVendas.br.com.projeto.dao
                 executacmd.Parameters.AddWithValue("@telefone", obj.telefone);
                 executacmd.Parameters.AddWithValue("@celular", obj.celular);
                 executacmd.Parameters.AddWithValue("@cep", obj.cep);
-                executacmd.Parameters.AddWithValue("@enedereco", obj.endereco);
+                executacmd.Parameters.AddWithValue("@endereco", obj.endereco);
                 executacmd.Parameters.AddWithValue("@numero", obj.numero);
                 executacmd.Parameters.AddWithValue("@complemento", obj.complemento);
                 executacmd.Parameters.AddWithValue("@bairro", obj.bairro);
@@ -137,5 +137,62 @@ namespace bdVendas.br.com.projeto.dao
         }
 
         #endregion AlterarCliente
+
+        #region ExcluirCliente
+
+        public void exluirCliente(Cliente obj)
+        {
+            try
+            {
+                string sql = @"Delete from tb_clientes where id=@id";
+
+                MySqlCommand executarcmd = new MySqlCommand(sql, conexao);
+
+                executarcmd.Parameters.AddWithValue("id", obj.id);
+
+                conexao.Open();
+                executarcmd.ExecuteNonQuery();
+
+                MessageBox.Show("Cliente excluido com sucesso");
+
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Ocorreu um erro" + erro);
+            }
+        }
+
+        #endregion ExcluirCliente
+
+        #region PesquisarCliente
+
+        public DataTable BuscarCliente(string nome)
+        {
+            try
+            {
+                DataTable tabelacliente = new DataTable();
+                string sql = "select * from tb_clientes where nome=@nome";
+
+                MySqlCommand executarcmd = new MySqlCommand();
+                executarcmd.Parameters.AddWithValue("@nome", nome);
+
+                conexao.Open();
+                executarcmd.ExecuteNonQuery();
+
+                MySqlDataAdapter da = new MySqlDataAdapter();
+                da.Fill(tabelacliente);
+
+                conexao.Close();
+
+                return tabelacliente;
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro ao executar o comando Sql" + erro);
+            }
+        }
+
+        #endregion PesquisarCliente
     }
 }
