@@ -42,6 +42,7 @@ namespace bdVendas.br.com.projeto.view
             ClienteDao dao = new ClienteDao();
             dao.cadastrarCliente(obj);
 
+            // Metodo para limpar formulario ao finai
             LimparFormulario();
         }
 

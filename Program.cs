@@ -17,7 +17,7 @@ namespace bdVendas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmClientes());
+            Application.Run(new FrmFornecedores());
         }
     }
 }
