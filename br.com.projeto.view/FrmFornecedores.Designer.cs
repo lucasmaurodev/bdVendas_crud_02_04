@@ -32,7 +32,7 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.tabClientes = new System.Windows.Forms.TabControl();
+            this.tabFornecedores = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.cbEstado = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -67,7 +67,7 @@
             this.tabelaFornecedores = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tabClientes.SuspendLayout();
+            this.tabFornecedores.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabelaFornecedores)).BeginInit();
@@ -98,6 +98,7 @@
             this.btnExcluir.TabIndex = 37;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnSalvar
             // 
@@ -124,15 +125,15 @@
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             // 
-            // tabClientes
+            // tabFornecedores
             // 
-            this.tabClientes.Controls.Add(this.tabPage1);
-            this.tabClientes.Controls.Add(this.tabPage2);
-            this.tabClientes.Location = new System.Drawing.Point(27, 69);
-            this.tabClientes.Name = "tabClientes";
-            this.tabClientes.SelectedIndex = 0;
-            this.tabClientes.Size = new System.Drawing.Size(575, 382);
-            this.tabClientes.TabIndex = 34;
+            this.tabFornecedores.Controls.Add(this.tabPage1);
+            this.tabFornecedores.Controls.Add(this.tabPage2);
+            this.tabFornecedores.Location = new System.Drawing.Point(27, 69);
+            this.tabFornecedores.Name = "tabFornecedores";
+            this.tabFornecedores.SelectedIndex = 0;
+            this.tabFornecedores.Size = new System.Drawing.Size(575, 382);
+            this.tabFornecedores.TabIndex = 34;
             // 
             // tabPage1
             // 
@@ -494,6 +495,8 @@
             this.tabelaFornecedores.ReadOnly = true;
             this.tabelaFornecedores.Size = new System.Drawing.Size(557, 198);
             this.tabelaFornecedores.TabIndex = 0;
+            this.tabelaFornecedores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabelaFornecedores_CellClick);
+            this.tabelaFornecedores.DoubleClick += new System.EventHandler(this.tabelaFornecedores_DoubleClick);
             // 
             // label1
             // 
@@ -525,12 +528,12 @@
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnNovo);
-            this.Controls.Add(this.tabClientes);
+            this.Controls.Add(this.tabFornecedores);
             this.Controls.Add(this.panel1);
             this.Name = "FrmFornecedores";
             this.Text = "FrmFornecedores";
             this.Load += new System.EventHandler(this.FrmFornecedores_Load);
-            this.tabClientes.ResumeLayout(false);
+            this.tabFornecedores.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -548,7 +551,7 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnNovo;
-        private System.Windows.Forms.TabControl tabClientes;
+        private System.Windows.Forms.TabControl tabFornecedores;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.ComboBox cbEstado;
         private System.Windows.Forms.Label label14;

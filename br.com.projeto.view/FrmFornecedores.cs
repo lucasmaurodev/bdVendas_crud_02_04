@@ -88,6 +88,49 @@ namespace bdVendas.br.com.projeto.view
             daon.ALterarFornecedores(obj);
 
             tabelaFornecedores.DataSource = daon.listarFornecedores();
+
+            LimparFormulario();
+        }
+
+        private void tabelaFornecedores_DoubleClick(object sender, EventArgs e)
+        {
+            txtCodigo.Text = tabelaFornecedores.CurrentRow.Cells[0].Value.ToString();
+            txtNome.Text = tabelaFornecedores.CurrentRow.Cells[1].Value.ToString();
+            txtCnpj.Text = tabelaFornecedores.CurrentRow.Cells[2].Value.ToString();
+            txtEmail.Text = tabelaFornecedores.CurrentRow.Cells[3].Value.ToString();
+            txtTelefone.Text = tabelaFornecedores.CurrentRow.Cells[4].Value.ToString();
+            txtCelular.Text = tabelaFornecedores.CurrentRow.Cells[5].Value.ToString();
+            txtCep.Text = tabelaFornecedores.CurrentRow.Cells[6].Value.ToString();
+            txtEndereco.Text = tabelaFornecedores.CurrentRow.Cells[7].Value.ToString();
+            txtNumero.Text = tabelaFornecedores.CurrentRow.Cells[8].Value.ToString();
+            txtComplento.Text = tabelaFornecedores.CurrentRow.Cells[9].Value.ToString();
+            txtBairro.Text = tabelaFornecedores.CurrentRow.Cells[10].Value.ToString();
+            txtCidade.Text = tabelaFornecedores.CurrentRow.Cells[11].Value.ToString();
+            cbEstado.Text = tabelaFornecedores.CurrentRow.Cells[12].Value.ToString();
+
+            tabFornecedores.SelectedTab = tabPage1;
+        }
+
+        private void tabelaFornecedores_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtCodigo.Text = tabelaFornecedores.CurrentRow.Cells[0].Value.ToString();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (txtCodigo == null)
+            {
+                return;
+            }
+
+            Fornecedores obj = new Fornecedores();
+            obj.id = int.Parse(txtCodigo.Text);
+
+            FornecedoresDao dao = new FornecedoresDao();
+
+            dao.ExcluirFornecedores(obj);
+
+            tabelaFornecedores.DataSource = dao.listarFornecedores();
         }
     }
 }

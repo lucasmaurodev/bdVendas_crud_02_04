@@ -127,5 +127,32 @@ namespace bdVendas.br.com.projeto.dao
         }
 
         #endregion AlterarFornecedores
+
+        #region ExcluirFornecedores
+
+        public void ExcluirFornecedores(Fornecedores obj)
+        {
+            try
+            {
+                string sql = @"Delete from tb_fornecedores where id=@id";
+
+                MySqlCommand executarcmd = new MySqlCommand(sql, conexao);
+
+                executarcmd.Parameters.AddWithValue("id", obj.id);
+
+                conexao.Open();
+                executarcmd.ExecuteNonQuery();
+
+                MessageBox.Show("Fornecedor excluido com sucesso");
+
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Ocorreu um erro" + erro);
+            }
+        }
+
+        #endregion ExcluirFornecedores
     }
 }
