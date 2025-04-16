@@ -67,7 +67,7 @@ namespace bdVendas.br.com.projeto.dao
             try
             {
                 DataTable tabelaFornecedores = new DataTable();
-                string sql = "select * from tb_forcedores";
+                string sql = "select * from tb_fornecedores";
 
                 MySqlCommand executacmd = new MySqlCommand(sql, conexao);
                 conexao.Open();
@@ -88,5 +88,44 @@ namespace bdVendas.br.com.projeto.dao
         }
 
         #endregion ListarFornecedores
+
+        #region AlterarFornecedores
+
+        public void ALterarFornecedores(Fornecedores obj)
+        {
+            try
+            {
+                string sql = @"update tb_fornecedores set nome=@nome, cnpj=@cnpj, email=@email, telefone=@telefone, celular=@celular, cep=@cep, endereco=@endereco, numero=@numero, complemento=@complemento, bairro=@bairro, cidade=@cidade, estado=@estado";
+
+                MySqlCommand executarcmd = new MySqlCommand(sql, conexao);
+
+                executarcmd.Parameters.AddWithValue("@nome", obj.nome);
+                executarcmd.Parameters.AddWithValue("@cnpj", obj.cnpj);
+                executarcmd.Parameters.AddWithValue("@email", obj.email);
+                executarcmd.Parameters.AddWithValue("@telefone", obj.telefone);
+                executarcmd.Parameters.AddWithValue("@celular", obj.celular);
+                executarcmd.Parameters.AddWithValue("@cep", obj.cep);
+                executarcmd.Parameters.AddWithValue("@endereco", obj.endereco);
+                executarcmd.Parameters.AddWithValue("@numero", obj.numero);
+                executarcmd.Parameters.AddWithValue("@complemento", obj.complemento);
+                executarcmd.Parameters.AddWithValue("@bairro", obj.bairro);
+                executarcmd.Parameters.AddWithValue("@cidade", obj.cidade);
+                executarcmd.Parameters.AddWithValue("@estado", obj.estado);
+
+                conexao.Open();
+
+                executarcmd.ExecuteNonQuery();
+
+                MessageBox.Show("Fornecedor alterado com sucesso");
+
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um erro:" + erro);
+            }
+        }
+
+        #endregion AlterarFornecedores
     }
 }

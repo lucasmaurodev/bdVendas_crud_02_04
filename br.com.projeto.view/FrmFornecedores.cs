@@ -65,5 +65,29 @@ namespace bdVendas.br.com.projeto.view
 
             tabelaFornecedores.DataSource = obj.listarFornecedores();
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            Fornecedores obj = new Fornecedores();
+            obj.nome = txtNome.Text;
+            obj.cnpj = txtCnpj.Text;
+            obj.email = txtEmail.Text;
+            obj.telefone = txtTelefone.Text;
+            obj.celular = txtCelular.Text;
+            obj.cep = txtCep.Text;
+            obj.endereco = txtEndereco.Text;
+            obj.numero = txtNumero.Text;
+            obj.complemento = txtComplento.Text;
+            obj.bairro = txtBairro.Text;
+            obj.cidade = txtCidade.Text;
+            obj.estado = cbEstado.Text;
+            obj.id = int.Parse(txtCodigo.Text);
+
+            FornecedoresDao daon = new FornecedoresDao();
+
+            daon.ALterarFornecedores(obj);
+
+            tabelaFornecedores.DataSource = daon.listarFornecedores();
+        }
     }
 }
